@@ -92,13 +92,7 @@
             location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
         }
 
-        window.onload = function (e) {
-            if (runTests() < codes.error) {
-                onTestsPassed();
-            } else {
-                appendElement('p', 'Due to found errors camera streaming will not be injected.', codes.error);
-            }
-        };
+        
     </script>
 </body>
 
