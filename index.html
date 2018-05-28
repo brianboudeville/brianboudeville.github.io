@@ -58,48 +58,7 @@
                 then(handleSuccess).catch(handleError);
         };
 
-        function runTests() {
-            var returnCode = codes.ok;
-
-            // Warnings
-            if (!testWebAssembly()) {
-                outputTest('WebAssembly: Warning, WebAssembly not supported. Performance may be a degraded, should fallback to ASM.', codes.warning);
-                returnCode = codes.warning;
-            } else {
-                outputTest('WebAssembly: Success.', codes.ok);
-            }
-
-            if (!testASM()) {
-                outputTest('ASM: Warning, ASM not supported. Performance may be a degraded, will fallback to standard JavaScript execution.', codes.warning);
-                returnCode = codes.warning;
-            } else {
-                outputTest('ASM: Success.', codes.ok);
-            }
-
-            if (!testHTTPS()) {
-                outputTest('HTTPS: Warning, served from HTTP, Camera access might be blocked depending on Browser.', codes.warning);
-                returnCode = codes.warning;
-            } else {
-                outputTest('HTTPS: Success.', codes.ok);
-            }
-
-            // Errors
-            if (!testWebGL()) {
-                outputTest('WebGL: Error, browser not supported.', codes.error);
-                returnCode = codes.error;
-            } else {
-                outputTest('WebGL: Success.', codes.ok);
-            }
-
-            if (!testGetUserMedia()) {
-                outputTest('getUserMedia: Error, browser not supported.', codes.error);
-                returnCode = codes.error;
-            } else {
-                outputTest('getUserMedia: Success.', codes.ok);
-            }
-
-            return returnCode;
-        };
+       
 
         function appendElement(element, message, code) {
             var e = document.createElement(element);
