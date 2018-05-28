@@ -20,74 +20,9 @@
     </style>
 </head>
 
-<body>
-    <div>
-        <p>
-            <a href="javascript:void(0)" onclick="goToHTTPS()">Force redirect to HTTPS</a>
-        </p>
-        <p>
-            <a href="javascript:void(0)" onclick="onTestsPassed()">Force camera access and inject to webpage</a>
-        </p>
-        <p>
-            <strong>Tests:</strong>
-        </p>
-        <ul id="tests">
 
-        </ul>
-        <p>Check the console for any other errors and warnings.</p>
-        <p>On success we expect to see a video object showing a live camera feed, otherwise an error message will show.</p>
-    </div>
 
-    <script type="text/javascript">
-        var testsUl = document.getElementById('tests');
-        var codes = {
-            error: 2,
-            warning: 1,
-            ok: 0,
-            toColor: function (code) {
-                switch (code) {
-                    case 0:
-                        return '#00AF00';
-                    case 1:
-                        return '#FFAF00';
-                    case 2:
-                        return '#AF0000';
-                    default:
-                        return '#000000';
-                }
-            }
-        };
-
-        function testWebAssembly() {
-            return typeof WebAssembly === 'object' ? true : false;
-        };
-
-        function testASM() {
-            try {
-                (function MyAsmModule() { "use asm"; return {} })();
-                return true;
-            }
-            catch (err) {
-                return false;
-            }
-        };
-
-        function testWebGL() {
-            try {
-                var canvas = document.createElement('canvas');
-                var webgl = !!(window).WebGLRenderingContext && (
-                    canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
-                return webgl ? true : false;
-            }
-            catch (e) {
-                return false;
-            }
-        };
-
-        function testHTTPS() {
-            return (location.protocol === 'https:') ? true : false;
-        };
-
+    
         function testGetUserMedia() {
             if (navigator && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                 return true;
